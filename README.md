@@ -71,3 +71,7 @@ Rewriting the code to comply with the writing methodology and improving the read
 ### and much more 
 
 The list is constantly being updated with new ideas if you too have an idea boldly feel free to [write to me ](https://www.linkedin.com/in/robert-gontarski/)
+
+## License
+
+[MIT](LICENSE)
