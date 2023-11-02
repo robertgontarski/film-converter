@@ -2,10 +2,10 @@ package write
 
 import (
 	"fmt"
+	"github.com/robertgontarski/film-converter/text"
 	"image"
 	"image/color"
 	"image/png"
-	"image/text"
 	"os"
 )
 

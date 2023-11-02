@@ -1,11 +1,11 @@
 package main
 
 import (
-	"image/read"
-	"image/readFilm"
-	"image/readFrames"
-	"image/write"
-	"image/writeFilm"
+	"github.com/robertgontarski/film-converter/read"
+	"github.com/robertgontarski/film-converter/readFilm"
+	"github.com/robertgontarski/film-converter/readFrames"
+	"github.com/robertgontarski/film-converter/write"
+	"github.com/robertgontarski/film-converter/writeFilm"
 	"os"
 )
 
