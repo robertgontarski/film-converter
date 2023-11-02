@@ -2,13 +2,18 @@ package text
 
 import (
 	"fmt"
+	"github.com/robertgontarski/gokit"
 	"io/ioutil"
 	"os"
 )
 
 func GetString() []byte {
-	// Open the file
-	file, err := os.Open("content.txt")
+	file, err := os.Open(fmt.Sprintf(
+		"%s/%s.%s",
+		gokit.Env["ENCODER_FILE_INPUT_FOLDER"],
+		gokit.Env["ENCODER_FILE_INPUT_FILE_NAME"],
+		gokit.Env["ENCODER_FILE_INPUT_FILE_EXTENSION"],
+	))
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		panic(err)

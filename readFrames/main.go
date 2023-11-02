@@ -2,6 +2,7 @@ package readFrames
 
 import (
 	"fmt"
+	"github.com/robertgontarski/gokit"
 	"image/png"
 	"io/ioutil"
 	"log"
@@ -12,7 +13,7 @@ var width int
 var height int
 
 func Init() {
-	files, err := ioutil.ReadDir("frames")
+	files, err := ioutil.ReadDir(gokit.Env["DECODER_FRAME_INPUT_FOLDER"])
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -20,7 +21,12 @@ func Init() {
 	var allBytes []byte
 
 	for i := 1; i <= len(files); i++ {
-		file, err := os.Open(fmt.Sprintf("frames/frame_%d.png", i))
+		file, err := os.Open(fmt.Sprintf("%s/%s_%d.%s",
+			gokit.Env["DECODER_FRAME_INPUT_FOLDER"],
+			gokit.Env["DECODER_FRAME_INPUT_FILE_NAME"],
+			i,
+			gokit.Env["DECODER_FRAME_INPUT_FILE_EXTENSION"],
+		))
 		if err != nil {
 			panic(err)
 		}

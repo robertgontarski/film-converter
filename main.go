@@ -1,45 +1,44 @@
 package main
 
 import (
-	"image/read"
-	"image/readFilm"
-	"image/readFrames"
-	"image/write"
-	"image/writeFilm"
+	"github.com/robertgontarski/gokit"
 	"os"
 )
 
 func init() {
-	if err := os.RemoveAll("images"); err != nil {
+	if err := os.MkdirAll(gokit.Env["ENCODER_FILE_INPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.Mkdir("images", 0777); err != nil {
+	if err := os.MkdirAll(gokit.Env["ENCODER_FRAME_OUTPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.RemoveAll("films"); err != nil {
+	if err := os.MkdirAll(gokit.Env["ENCODER_MOVIE_OUTPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.Mkdir("films", 0777); err != nil {
+	if err := os.MkdirAll(gokit.Env["ENCODER_MOVIE_PREVIEW_OUTPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.RemoveAll("frames"); err != nil {
+	if err := os.MkdirAll(gokit.Env["ENCODER_MOVIE_FRAMES_INPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.Mkdir("frames", 0777); err != nil {
+	if err := os.MkdirAll(gokit.Env["DECODER_MOVIE_OUTPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.RemoveAll("files"); err != nil {
+	if err := os.MkdirAll(gokit.Env["DECODER_FILE_OUTPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
-	if err := os.Mkdir("files", 0777); err != nil {
+	if err := os.MkdirAll(gokit.Env["DECODER_MOVIE_INPUT_FOLDER"], 0777); err != nil {
+		panic(err)
+	}
+	if err := os.MkdirAll(gokit.Env["DECODER_FRAME_INPUT_FOLDER"], 0777); err != nil {
 		panic(err)
 	}
 }
 
 func main() {
-	write.Init()
-	read.Init()
-	writeFilm.Init()
-	readFilm.Init()
-	readFrames.Init()
+	//write.Init()
+	//read.Init()
+	//writeFilm.Init()
+	//readFilm.Init()
+	//readFrames.Init()
 }
