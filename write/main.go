@@ -3,18 +3,18 @@ package write
 import (
 	"fmt"
 	"github.com/robertgontarski/film-converter/text"
+	"github.com/robertgontarski/gokit"
 	"image"
 	"image/color"
 	"image/png"
 	"os"
-)
-
-const (
-	width  = 1280
-	height = 720
+	"strconv"
 )
 
 func Init() {
+	width, _ := strconv.Atoi(gokit.Env["ENCODER_FRAME_WIDTH"])
+	height, _ := strconv.Atoi(gokit.Env["ENCODER_FRAME_HEIGHT"])
+
 	bytes := text.GetString()
 
 	countImg := len(bytes) / (width * height)
@@ -64,7 +64,13 @@ func Init() {
 			}
 		}
 
-		file, err := os.Create(fmt.Sprintf("images/obraz_%d.png", i))
+		file, err := os.Create(fmt.Sprintf(
+			"%v/%v_%d.%v",
+			gokit.Env["ENCODER_FRAME_OUTPUT_FOLDER"],
+			gokit.Env["ENCODER_FRAME_OUTPUT_FILE_NAME"],
+			i,
+			gokit.Env["ENCODER_FRAME_OUTPUT_FILE_EXTENSION"],
+		))
 		if err != nil {
 			panic(err)
 		}
