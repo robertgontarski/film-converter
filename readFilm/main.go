@@ -1,23 +1,30 @@
 package readFilm
 
 import (
-	"log"
+	"fmt"
+	"github.com/robertgontarski/gokit"
 	"os/exec"
 )
 
 func Init() {
-	videoPath := "films/film.mp4"
-	outputPath := "frames/frame_%d.png"
-
-	// Ustawianie argumentów dla ffmpeg
 	cmdArgs := []string{
-		"-i", videoPath,
-		"-vf", "fps=1",
-		outputPath,
+		"-i", fmt.Sprintf(
+			"%s/%s.%s",
+			gokit.Env["DECODER_MOVIE_INPUT_FOLDER"],
+			gokit.Env["DECODER_MOVIE_INPUT_FILE_NAME"],
+			gokit.Env["DECODER_MOVIE_INPUT_FILE_EXTENSION"],
+		),
+		"-vf",
+		fmt.Sprintf("fps=%s", gokit.Env["DECODER_MOVIE_INPUT_FILE_FPS"]),
+		fmt.Sprintf("%s/%s_%%d.%s",
+			gokit.Env["DECODER_MOVIE_OUTPUT_FOLDER"],
+			gokit.Env["DECODER_MOVIE_OUTPUT_FILE_NAME"],
+			gokit.Env["DECODER_MOVIE_OUTPUT_FILE_EXTENSION"],
+		),
 	}
 
 	cmd := exec.Command("ffmpeg", cmdArgs...)
 	if err := cmd.Run(); err != nil {
-		log.Fatalf("Error while generating frames: %v", err)
+		panic(err)
 	}
 }
