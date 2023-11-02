@@ -24,6 +24,12 @@ func main() {
 }
 ```
 
+run docker config to run main.go file
+
+```shell
+docker compose up
+```
+
 ## API Reference
 
 ### write
