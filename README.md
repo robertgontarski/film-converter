@@ -78,6 +78,10 @@ Rewriting the code to comply with the writing methodology and improving the read
 
 The list is constantly being updated with new ideas if you too have an idea boldly feel free to [write to me ](https://www.linkedin.com/in/robert-gontarski/)
 
+## Patch notes
+
+- [02-11-2023](.doc/patchNotes/02-11-2023.md)
+
 ## License
 
 [MIT](LICENSE)
