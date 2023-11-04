@@ -1,44 +1,35 @@
 package main
 
 import (
-	"github.com/robertgontarski/gokit"
-	"os"
+	"github.com/robertgontarski/film-converter/src/setup"
 )
 
 func init() {
-	if err := os.MkdirAll(gokit.Env["ENCODER_FILE_INPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["ENCODER_FRAME_OUTPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["ENCODER_MOVIE_OUTPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["ENCODER_MOVIE_PREVIEW_OUTPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["ENCODER_MOVIE_FRAMES_INPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["DECODER_MOVIE_OUTPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["DECODER_FILE_OUTPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["DECODER_MOVIE_INPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
-	if err := os.MkdirAll(gokit.Env["DECODER_FRAME_INPUT_FOLDER"], 0777); err != nil {
-		panic(err)
-	}
+	setup.Run()
 }
 
 func main() {
-	//write.Init()
-	//read.Init()
-	//writeFilm.Init()
-	//readFilm.Init()
-	//readFrames.Init()
+	//if err := encoder.GenerateImages(encoder.GetImagesConfig()); err != nil {
+	//	gokit.ErrorLogger.Println(err)
+	//	fmt.Println("App failed to generate images. Please check the logs for more information.")
+	//	return
+	//}
+	//
+	//if err := encoder.GenerateFilm(encoder.GetFilmConfig()); err != nil {
+	//	gokit.ErrorLogger.Println(err)
+	//	fmt.Println("App failed to generate film. Please check the logs for more information.")
+	//	return
+	//}
+	//
+	//if err := decoder.GenerateFrames(decoder.GetFrameConfig()); err != nil {
+	//	gokit.ErrorLogger.Println(err)
+	//	fmt.Println("App failed to generate frames. Please check the logs for more information.")
+	//	return
+	//}
+	//
+	//if err := decoder.GenerateFile(decoder.GetFileConfig()); err != nil {
+	//	gokit.ErrorLogger.Println(err)
+	//	fmt.Println("App failed to generate file. Please check the logs for more information.")
+	//	return
+	//}
 }
